@@ -9,5 +9,18 @@ export default [
   {languageOptions: { globals: { ...globals.browser, ...globals.node }}},
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
-  pluginReact.configs.flat['jsx-runtime']
+  pluginReact.configs.flat['jsx-runtime'],
+  {
+    files: ["**/components/ui/**/*.{js,jsx}"],
+    rules: {
+      "react/prop-types": "off"
+    }
+  },
+  {
+    settings: {
+      react: {
+        version: "19.0.0"
+      }
+    }
+  }
 ];

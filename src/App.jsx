@@ -5,7 +5,7 @@ function App() {
     toast.success("A lovely toast!");
   };
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen w-full">
       <h1 className="text-3xl font-bold hover:text-blue-300">
         React + Vite + Tailwind
       </h1>
