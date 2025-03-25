@@ -1,14 +1,17 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { MainSidebar } from "@/components/common/MainSidebar";
 import PropTypes from "prop-types";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 function Base({ children }) {
   return (
     <SidebarProvider>
       <MainSidebar />
-      <SidebarTrigger />
       <div className="flex flex-col items-center justify-center h-screen w-full">
+        <Header />
         {children}
+        <Footer />
       </div>
     </SidebarProvider>
   );
