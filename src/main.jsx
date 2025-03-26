@@ -4,12 +4,15 @@ import "./index.css";
 import Base from "./layouts/base.jsx";
 import { Toaster } from "@/components/ui/sonner";
 import App from "./App.jsx";
+import { ThemeProvider } from "next-themes";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Base>
-      <App />
-    </Base>
-    <Toaster />
+    <ThemeProvider attribute="class">
+      <Base>
+        <App />
+      </Base>
+      <Toaster />
+    </ThemeProvider>
   </StrictMode>,
 );

@@ -3,8 +3,16 @@ import { MainSidebar } from "@/components/common/MainSidebar";
 import PropTypes from "prop-types";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import { useEffect, useState } from "react";
 
 function Base({ children }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
   return (
     <SidebarProvider>
       <MainSidebar />

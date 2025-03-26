@@ -6,11 +6,11 @@ function App() {
   };
   return (
     <div className="flex flex-col items-center justify-center h-screen w-full">
-      <h1 className="text-3xl font-bold hover:text-blue-300">
+      <h1 className="text-3xl font-bold hover:text-chart-4">
         React + Vite + Tailwind
       </h1>
       <Button
-        className="bg-blue-400 text-white hover:bg-blue-300 hover:animate-bounce m-4"
+        className="bg-chart-4 text-background hover:bg-chart-4/50 hover:animate-bounce m-4"
         onClick={generateToast}
       >
         Click me
