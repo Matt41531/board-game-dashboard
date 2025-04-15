@@ -4,28 +4,37 @@ import { supabase } from "../../utils/supabase";
 function Cards() {
   const [wingspanCards, setWingspanCards] = useState(null);
   useEffect(() => {
-    console.log("CALL CARD API");
     getCards();
   }, []);
 
   async function getCards() {
     try {
-      const response = await supabase.from("cards").select("*");
-      if (!response.ok) {
-        throw new Error("Reponse status: " + response.status);
+      const { data, error } = await supabase.from("cards").select("*");
+      if (error) {
+        throw new Error(error.message);
       }
-      const json = await response.json();
-      setWingspanCards(json);
-      console.log(json);
+      setWingspanCards(data);
+      console.log(data);
     } catch (error) {
       console.error(error.message);
     }
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-full">
-      <h1>CARDS PAGE HERE</h1>
-      {wingspanCards && wingspanCards[0].name}
+    <div className="flex-1 overflow-auto p-4">
+      <div className="flex flex-wrap gap-4 justify-center">
+        {wingspanCards &&
+          wingspanCards.map((card) => (
+            <div key={card.id} className="flex flex-col items-center w-64 bg-chart-4 rounded-lg shadow-md p-4">
+              <h3 className="text-lg font-semibold mb-2">{card.name}</h3>
+              <img 
+                src={card.img_url} 
+                alt={card.name}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
