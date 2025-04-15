@@ -9,7 +9,7 @@ function DarkModeToggle() {
   const toggleDarkMode = () => {
     setTheme(isDarkMode ? "light" : "dark");
   };
-  
+
   return (
     <>
       <Switch

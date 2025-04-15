@@ -25,10 +25,13 @@ function Cards() {
       <div className="flex flex-wrap gap-4 justify-center">
         {wingspanCards &&
           wingspanCards.map((card) => (
-            <div key={card.id} className="flex flex-col items-center w-64 bg-chart-4 rounded-lg shadow-md p-4">
+            <div
+              key={card.id}
+              className="flex flex-col items-center w-64 bg-chart-4 rounded-lg shadow-md p-4"
+            >
               <h3 className="text-lg font-semibold mb-2">{card.name}</h3>
-              <img 
-                src={card.img_url} 
+              <img
+                src={card.img_url}
                 alt={card.name}
                 className="w-full h-auto object-contain"
               />
