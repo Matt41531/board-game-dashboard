@@ -1,12 +1,25 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
+import Base from "./layouts/base.jsx";
 import { Toaster } from "@/components/ui/sonner";
+import App from "./App.jsx";
+import { ThemeProvider } from "next-themes";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Cards from "./pages/Cards";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-    <Toaster />
+    <ThemeProvider attribute="class">
+      <BrowserRouter>
+        <Base>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/cards" element={<Cards />} />
+          </Routes>
+        </Base>
+      </BrowserRouter>
+      <Toaster />
+    </ThemeProvider>
   </StrictMode>,
 );
