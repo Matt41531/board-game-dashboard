@@ -33,7 +33,7 @@ function Cards() {
               <img
                 src={card.img_url}
                 alt={card.name}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain hover:scale-105 transition-all duration-300"
               />
             </div>
           ))}
