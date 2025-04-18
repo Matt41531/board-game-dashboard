@@ -42,7 +42,7 @@ function Header() {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <div className="flex flex-1 items-center justify-center max-w-1/2 md:max-w-1/4 xl:max-w-1/6">
+      <div className="flex flex-1 items-center justify-center max-w-1/2">
         <HeaderSearchBar />
       </div>
     </header>
