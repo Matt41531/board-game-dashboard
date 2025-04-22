@@ -1,7 +1,8 @@
 import { Input } from "../ui/input";
 import { supabase } from "../../../utils/supabase";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ComboBoxResponsive } from "../ui/combobox";
+import { CardsContext } from "@/hooks/cardsContext";
 
 function HeaderSearchBar() {
   const [searchText, setSearchText] = useState("");
@@ -10,6 +11,7 @@ function HeaderSearchBar() {
     food: null,
     eggCount: null,
   });
+  const { setCardResults } = useContext(CardsContext);
 
   //TO-DO: Make this dynamic with DB tables or at least moving to a constants file
   const habitat = [
@@ -118,7 +120,7 @@ function HeaderSearchBar() {
       if (error) {
         throw new Error(error.message);
       }
-
+      setCardResults(data);
       console.log("Search results:", data);
       console.log("Search text:", searchText);
     } catch (error) {

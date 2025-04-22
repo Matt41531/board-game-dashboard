@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import { useEffect, useState } from "react";
+import { CardsContext } from "@/hooks/cardsContext";
 
 function Base({ children }) {
   const [mounted, setMounted] = useState(false);
+  const [cardResults, setCardResults] = useState(undefined);
 
   useEffect(() => {
     setMounted(true);
@@ -17,9 +19,11 @@ function Base({ children }) {
     <SidebarProvider>
       <MainSidebar />
       <div className="flex flex-col items-center justify-center h-screen w-full">
-        <Header />
-        {children}
-        <Footer />
+        <CardsContext.Provider value={{ cardResults, setCardResults }}>
+          <Header />
+          {children}
+          <Footer />
+        </CardsContext.Provider>
       </div>
     </SidebarProvider>
   );

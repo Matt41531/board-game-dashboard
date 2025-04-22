@@ -1,30 +1,14 @@
-import { useEffect, useState } from "react";
-import { supabase } from "../../utils/supabase";
+import { useContext } from "react";
+import { CardsContext } from "@/hooks/cardsContext";
 
 function Cards() {
-  const [wingspanCards, setWingspanCards] = useState(null);
-  useEffect(() => {
-    getCards();
-  }, []);
-
-  async function getCards() {
-    try {
-      const { data, error } = await supabase.from("cards").select("*");
-      if (error) {
-        throw new Error(error.message);
-      }
-      setWingspanCards(data);
-      console.log(data);
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
-
+  const { cardResults } = useContext(CardsContext);
+  console.log(cardResults);
   return (
     <div className="flex-1 overflow-auto p-4">
       <div className="flex flex-wrap gap-4 justify-center">
-        {wingspanCards &&
-          wingspanCards.map((card) => (
+        {cardResults &&
+          cardResults.map((card) => (
             <img
               key={card.id}
               src={card.img_url}
