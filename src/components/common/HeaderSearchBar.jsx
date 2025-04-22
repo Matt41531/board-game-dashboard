@@ -11,7 +11,6 @@ function HeaderSearchBar() {
     eggCount: null,
   });
 
-
   //TO-DO: Make this dynamic with DB tables or at least moving to a constants file
   const habitat = [
     {
@@ -64,6 +63,14 @@ function HeaderSearchBar() {
       value: "4",
       label: "4",
     },
+    {
+      value: "5",
+      label: "5",
+    },
+    {
+      value: "6",
+      label: "6",
+    },
   ];
 
   useEffect(() => {
@@ -93,14 +100,21 @@ function HeaderSearchBar() {
   async function searchBirdsByName() {
     try {
       console.log("Filters: ", filters);
-      const { data, error } = await supabase
+      let searchQuery = supabase
         .from("cards")
         .select("*")
-        .ilike("name", `%${searchText}%`)
-        .eq(`${filters.habitat}_habitat`, true)
-        .gte(`${filters.food}_required`, 0)
-        .eq("egg_count", filters.eggCount);
+        .ilike("name", `%${searchText}%`);
+      if (filters.habitat) {
+        searchQuery = searchQuery.eq(`${filters.habitat}_habitat`, true);
+      }
+      if (filters.food) {
+        searchQuery = searchQuery.gte(`${filters.food}_required`, 0);
+      }
+      if (filters.eggCount) {
+        searchQuery = searchQuery.eq("egg_count", filters.eggCount);
+      }
 
+      const { data, error } = await searchQuery;
       if (error) {
         throw new Error(error.message);
       }
