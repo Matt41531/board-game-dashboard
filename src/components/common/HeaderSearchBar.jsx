@@ -76,20 +76,8 @@ function HeaderSearchBar() {
   ];
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Enter") {
-        handleSubmit();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [searchText, filters]);
-
-  function handleSubmit() {
     searchBirdsByName();
-  }
+  }, [searchText, filters]);
 
   function handleFilterChange(type, value) {
     console.log("Filter: ", type, value);
@@ -110,7 +98,7 @@ function HeaderSearchBar() {
         searchQuery = searchQuery.eq(`${filters.habitat}_habitat`, true);
       }
       if (filters.food) {
-        searchQuery = searchQuery.gte(`${filters.food}_required`, 0);
+        searchQuery = searchQuery.gt(`${filters.food}_required`, 0);
       }
       if (filters.eggCount) {
         searchQuery = searchQuery.eq("egg_count", filters.eggCount);
