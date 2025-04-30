@@ -6,7 +6,7 @@ function Cards() {
   console.log(cardResults);
   return (
     <div className="flex-1 overflow-auto p-4">
-      <div className="flex flex-wrap gap-4 justify-center">
+      <main className="flex flex-wrap gap-4 justify-center">
         {cardResults &&
           cardResults.map((card) => (
             <img
@@ -16,7 +16,7 @@ function Cards() {
               className="w-1/8 hover:scale-110 transition"
             />
           ))}
-      </div>
+      </main>
     </div>
   );
 }
