@@ -7,6 +7,7 @@ import App from "./App.jsx";
 import { ThemeProvider } from "next-themes";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Cards from "./pages/Cards";
+import Rules from "./pages/Rules";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")).render(
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/cards" element={<Cards />} />
+            <Route path="/rules" element={<Rules />} />
           </Routes>
         </Base>
       </BrowserRouter>
