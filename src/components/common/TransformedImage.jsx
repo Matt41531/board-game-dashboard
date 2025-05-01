@@ -52,7 +52,6 @@ function TransformedImage({
       width={width}
       height={height}
       className={className}
-      loading="lazy"
     />
   );
 }
