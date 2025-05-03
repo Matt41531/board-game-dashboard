@@ -41,12 +41,12 @@ export function ComboBoxResponsive({ options, title, onChange }) {
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            className="w-[150px] justify-start bg-[#121212] text-white"
+            className="w-1/6 justify-start bg-[#121212] text-white m-2"
           >
             {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set {title}</>}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[200px] p-0" align="start">
+        <PopoverContent className="w-full p-0" align="start">
           <StatusList
             setOpen={setOpen}
             setSelectedStatus={setSelectedStatus}
