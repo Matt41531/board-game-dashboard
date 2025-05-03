@@ -41,7 +41,7 @@ export function ComboBoxResponsive({ options, title, onChange }) {
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            className="w-1/6 justify-start bg-[#121212] text-white m-2"
+            className="w-1/6 justify-start bg-background text-foreground m-2"
           >
             {selectedStatus ? <>{selectedStatus.label}</> : <>+ Set {title}</>}
           </Button>
@@ -64,7 +64,7 @@ export function ComboBoxResponsive({ options, title, onChange }) {
       <DrawerTrigger asChild>
         <Button
           variant="outline"
-          className="justify-start bg-[#121212] text-white"
+          className="justify-start bg-background text-foreground m-2"
         >
           {selectedStatus ? (
             <span>
