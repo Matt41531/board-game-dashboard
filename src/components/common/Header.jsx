@@ -42,9 +42,11 @@ function Header() {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <div className="flex flex-1 items-center justify-center max-w-1/2">
-        <HeaderSearchBar />
-      </div>
+      {path === "/cards" && (
+        <div className="flex flex-1 items-center justify-center max-w-1/2">
+          <HeaderSearchBar />
+        </div>
+      )}
     </header>
   );
 }
